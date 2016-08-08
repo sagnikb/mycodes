@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 
 struct node{
        int data;
@@ -19,7 +20,7 @@ queue * makeQueue(){
       queue* Q = (queue*)malloc(sizeof(queue));
       Q->front = NULL;
       Q->rear = NULL;
-      Q->itemN = 0;
+      Q->itemN = 0; 
       return Q;
 } 
 
@@ -39,39 +40,33 @@ int isEmpty(queue Q){
     }
 }
 
-void insert(int x, queue Q){
-     if(isEmpty(Q)){
-                    node newNode = makeNode(x);
-                    Q.front = newNode;
-                    Q.rear = newNode;
+void insert(int x, queue * Q){
+	if(isEmpty(*Q)){    
+		node newNode = makeNode(x); 
+		Q->front = newNode;
+                Q->rear = newNode;
      }
      else{
-          node newNode = makeNode(x);
-          Q.rear->next = newNode;
-          Q.rear = newNode;
+	  node newNode = makeNode(x);
+          Q->rear->next = newNode;
+          Q->rear = newNode;
      }
 }
 
 void printList(node head){
                node current = head;
-               //printf("1\n");
-               
                while(current != NULL){
-                             printf("1\n");
                              printf("%d\n", current->data);
                              current = current->next;
                }
 }
 
 int main(){
-    queue * Q = makeQueue(); 
-    //printf("%d\n", isEmpty(*Q));
-    insert(2,*Q);
-    insert(5,*Q);
-    insert(7,*Q);
-    printf("%d\n", Q->front->data);
-    printList(Q->front);
-    //printf("%d\n", isEmpty(*Q));    
-    system("PAUSE");
+    queue * Q = makeQueue();
+    insert(2,Q);
+    insert(5,Q);
+    insert(7,Q);
+    printList(Q->front);    
+    //system("PAUSE");
     return 0;
 }
