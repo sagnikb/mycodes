@@ -18,17 +18,12 @@ array = []
 
 for num in range(1,limit+1):
 	array.append(Queue())
-	#print(num)
-	#print(array[num-1])
 
 f = open('numbers.txt', 'r')
 for line in f:
 	number = int(line)
-	#print(number)
 	array[number-1].enqueue(number)
 
 for queue in array:
 	while (queue.size() != 0):
 		print(queue.dequeue())
-
-
