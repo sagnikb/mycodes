@@ -1,7 +1,7 @@
 //bucketsort for DS experiment
 #include<stdio.h>
 #include<stdlib.h>
-#define size 5000001
+#define size 500001
 #define input 1000000
 
 struct node{
