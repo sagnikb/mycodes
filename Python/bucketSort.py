@@ -12,14 +12,14 @@ class Queue:
 	def dequeue(self):
 		return self.items.pop()
 
-limit = raw_input("Please enter maximum number in input: ")
+limit = 500001
 limit = int(limit)
 array = []
 
 for num in range(1,limit+1):
 	array.append(Queue())
 
-f = open('numbers.txt', 'r')
+f = open('number.txt', 'r')
 for line in f:
 	number = int(line)
 	array[number-1].enqueue(number)
