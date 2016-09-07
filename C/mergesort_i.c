@@ -47,13 +47,15 @@ int main(){
 		len = len*2;
 		step++;
 	}
-	printf("%d\n", len);
-	int arr[len];
+	//printf("%d\n", len);
+	//int arr[len];
 	//int arr[size];
+	int * arr;
+       	arr = (int *)malloc(len*sizeof(int));	
 	for(int i = 0; i < size; i++){
 		fscanf(fp, "%d", &arr[i]);
 	}
-	printf("\n\n");
+	//printf("\n\n");
 	for(int j = size; j < len; j++){
 		arr[j] = 500001;
 	}
