@@ -1,0 +1,18 @@
+RC Circuit Transient Response
+*resistor connected between nodes 1 and 2
+r1 1 2 1k
+*capacitor connected between nodes 2 and 0
+c1 2 0 1u
+*AC source wth zero dc
+vin 1 0 dc 0 ac 1
+*ac analysis for 1Hz to 1MHz, 10 points per decade
+.ac dec 10 1 1Meg
+*defining the run-time control functions
+.control
+run
+*Magnitude dB plot for v(2) on log scale
+plot vdb(2) xlog
+*Phase degrees plot for v(2) on log scale
+plot {57.29*vp(2)} xlog
+.endc
+.end
